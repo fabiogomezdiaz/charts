@@ -18,14 +18,15 @@ spec:
     {{- if (not (empty .Values.ingress.tls)) }}
     https:
       paths:
-      - path: /
+      - path: {{ .Values.ingress.path }}
         backend:
           serviceName: {{ template "gitlab-ce.fullname" . }}
           servicePort: {{ .Values.httpsPort }}
+      }
     {{- else }}
     http:
       paths:
-      - path: /
+      - path: {{ .Values.ingress.path }}
         backend:
           serviceName: {{ template "gitlab-ce.fullname" . }}
           servicePort: {{ .Values.httpPort }}

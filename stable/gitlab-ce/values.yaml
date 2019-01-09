@@ -36,6 +36,7 @@ ingress:
       #   hosts:
       #     - gitlab.cluster.local
   url: gitlab.cluster.local
+  path: /
 
 ## Configure external service ports
 ## ref: http://kubernetes.io/docs/user-guide/services/
