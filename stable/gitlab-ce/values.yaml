@@ -76,6 +76,7 @@ persistence:
     ##
     # storageClass:
     accessMode: ReadWriteOnce
+    #existingClaim:
   ## This volume is used to store git data and other project files.
   ## ref: https://docs.gitlab.com/omnibus/settings/configuration.html#storing-git-data-in-an-alternative-directory
   ##
@@ -87,6 +88,7 @@ persistence:
     ##
     # storageClass:
     accessMode: ReadWriteOnce
+    #existingClaim:
 
 ## Configuration values for the postgresql dependency.
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/postgresql/README.md
@@ -103,6 +105,7 @@ postgresql:
 
   persistence:
     size: 10Gi
+    #existingClaim:
 
 ## Configuration values for the redis dependency.
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/redis/README.md
@@ -116,3 +119,4 @@ redis:
 
   persistence:
     size: 10Gi
+    #existingClaim:

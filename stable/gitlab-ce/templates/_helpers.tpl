@@ -30,3 +30,19 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "gitlab-ce.redis.fullname" -}}
 {{- printf "%s-%s" .Release.Name "redis" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Create a default name for gitlabEtc PVC name.
+*/}}
+}}
+{{- define "gitlab-ce.pvc.etc" -}}
+{{ template "gitlab-ce.fullname" . }}-etc
+{{- end -}}
+
+{{/*
+Create a default name for gitlabData PVC name.
+*/}}
+}}
+{{- define "gitlab-ce.pvc.data" -}}
+{{ template "gitlab-ce.fullname" . }}-data
+{{- end -}}

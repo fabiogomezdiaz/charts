@@ -1,8 +1,8 @@
-{{- if .Values.persistence.gitlabEtc.enabled }}
+{{- if and .Values.persistence.gitlabEtc.enabled (not .Values.persistence.gitlabEtc.existingClaim) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "gitlab-ce.fullname" . }}-etc
+  name: {{ template "gitlab-ce.pvc.etc" . }}
   annotations:
   {{- if .Values.persistence.gitlabEtc.storageClass }}
     volume.beta.kubernetes.io/storage-class: {{ .Values.persistence.gitlabEtc.storageClass | quote }}
