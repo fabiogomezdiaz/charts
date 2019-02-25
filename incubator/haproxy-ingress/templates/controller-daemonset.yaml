@@ -67,7 +67,6 @@ spec:
             {{- end }}
           {{- if .Values.controller.stats.enabled }}
             - name: stats
-            - name: stats
               containerPort: {{ .Values.controller.stats.port }}
               protocol: TCP
           {{- end }}
@@ -181,5 +180,8 @@ spec:
     {{- if .Values.controller.affinity }}
       affinity:
 {{ toYaml .Values.controller.affinity | indent 8 }}
+    {{- end }}
+    {{- if .Values.controller.priorityClassName }}
+      priorityClassName: {{ .Values.controller.priorityClassName }}
     {{- end }}
 {{- end }}
